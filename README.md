@@ -5,7 +5,7 @@
 * E-mail : Li15932804366@outlook.com
 
 ## Contents
-* Chapter 1: Introduction
+* [Chapter 1: Introduction](https://github.com/liyuanhao6/Data-structures-and-algorithm-analysis-in-c/tree/master/Chapter%201:%20Introduction)
 * Chapter 2: Algorithm Analysis
 * Chapter 3: Lists, Stacks, and Queues
 * Chapter 4: Trees

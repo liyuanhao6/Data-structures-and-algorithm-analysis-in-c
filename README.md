@@ -1,2 +1,21 @@
-# Data-structures-and-algorithm-analysis-in-c
-The solutions of exercises
+#  The Solutions Of Exercises 
+
+## Notes
+* Use IDE : Xcode / text editor : Visual Studio Code 2019.
+* E-mail : Li15932804366@outlook.com
+
+## Contents
+* Chapter 1: Introduction
+* Chapter 2: Algorithm Analysis
+* Chapter 3: Lists, Stacks, and Queues
+* Chapter 4: Trees
+* Chapter 5: Hashing
+* Chapter 6: Priority Queues(Heaps)
+* Chapter 7: Sorting 
+* Chapter 8: The Disjoint Set ADT
+* Chapter 9: Graph Algorithms
+* Chapter 10: Algorithm Design Techniques
+* Chapter 11: Amortized Analysis
+
+## License
+Copyright © 2019 Antoine Li. All rights reserved.

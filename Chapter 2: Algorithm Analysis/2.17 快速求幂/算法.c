@@ -4,7 +4,7 @@
 # define True  1
 # define False 0
 
-long int Pow( int X, int N )
+long int Pow( int X, int N ) // The Binary Product
 {
     long int temp = 1;
 

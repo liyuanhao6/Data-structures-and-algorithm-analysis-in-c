@@ -7,6 +7,7 @@ int MinSubsequenceSum( const int A[], int N )
     ThisSum = MinSum = 0;
     for ( i = 0; i < N; i++ )
     {
+        /* ThisSum is positive so ThisSum is equal to 0 */
         ThisSum += A[i];
             
         if ( ThisSum < MinSum )

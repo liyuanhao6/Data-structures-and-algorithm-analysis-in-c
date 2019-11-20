@@ -1,6 +1,6 @@
 // O( 1 )
 
-long double A_Sum( void )
+long double A_Sum( void ) // 1/4^i  i from 0 to inf
 {
     long double sum = 0, num = 1;
 
@@ -13,7 +13,7 @@ long double A_Sum( void )
     return sum;
 }
 
-long double B_Sum( void )
+long double B_Sum( void ) // i/4^i i from 0 to inf
 {
     long double sum = 0, num = 1, i = 0;
     long double temp;
@@ -29,7 +29,7 @@ long double B_Sum( void )
     return sum;
 }
 
-long double C_Sum( void )
+long double C_Sum( void ) // i^2/4^i i from 0 to inf
 {
     long double sum = 0, num = 1, i = 0;
     long double temp;
@@ -47,7 +47,7 @@ long double C_Sum( void )
 
 // O( N )
 
-long double D_Sum( int N )
+long double D_Sum( int N ) // i^N/4^i i from 0 to inf
 {
     long double sum = 0, num = 1, i = 0;
     long double temp, iTemp;

@@ -2,7 +2,7 @@
 
 # define NotFound -1
 
-int LineSearch( const ElementType A[], ElementType X, int N)
+int LineSearch( const ElementType A[], ElementType X, int N) // The Line Search
 {
     int i;
 

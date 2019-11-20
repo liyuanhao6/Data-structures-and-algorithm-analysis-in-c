@@ -1,6 +1,6 @@
 // O( logN )
 
-unsigned int Pow ( long int X, unsigned int N )
+unsigned int Pow ( long int X, unsigned int N ) // The Binary Product
 {
     if ( N == 0 )
         return 1;

@@ -5,10 +5,11 @@ int MaxSubsequenceSum( const int A[], int N )
     int ThisSum, MaxSum, i;
 
     ThisSum = MaxSum = 0;
-    for ( i = 0; i < N; i++ ) // 从i清点到A[i]至总和为正
+    for ( i = 0; i < N; i++ )
     {
+        /* ThisSum is negative so ThisSum is equal to 0 */
         ThisSum += A[i];
-            
+
         if ( ThisSum > MaxSum )
             MaxSum = ThisSum;
         else if ( ThisSum < 0 )

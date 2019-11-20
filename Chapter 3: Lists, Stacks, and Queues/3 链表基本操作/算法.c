@@ -12,7 +12,7 @@ int IsEmpty( struct List* head );
 int IsLast( struct List* p );
 struct List* Find( struct List* head, int num );
 struct List* FindPrevious( struct List* head, int num );
-struct List* Delect( struct List* head, int num );
+struct List* Delete( struct List* head, int num );
 struct List* Insert( struct List* head, int num, int pos);
 
 struct List* CreatList( int ct )
@@ -112,7 +112,7 @@ struct List* FindPrevious( struct List* head, int num )
     return p;
 }
 
-struct List* Delect( struct List* head, int num )
+struct List* Delete( struct List* head, int num )
 {
     struct List *p = NULL *q = NULL;
 

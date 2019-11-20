@@ -6,7 +6,7 @@ int FindPivot( const int A[] , int N )
 {
     int i;
     int index = 0, count = 0;
-    int *B = ( int* )malloc( ( N + 1 ) / 2 ); // 可省略B数组
+    int *B = ( int* )malloc( ( N + 1 ) / 2 ); // Could overlook the array B
 
     if ( N % 2 )
     {

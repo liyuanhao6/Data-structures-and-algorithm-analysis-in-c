@@ -5,11 +5,11 @@ int *RandArray ( int i, int j )
     int *array = NULL;
     int p, q, num, flag;
 
-    array =  ( int* ) malloc( sizeof( int ) * ( j - i + 1 ) );
+    array =  ( int* ) malloc( sizeof( int ) * ( j - i + 1 ) ); // Allocate memory for ( j - i + 1 ) * int
     for ( p = 0; p < j - i + 1; p++ )
     {
-        flag = 1;
-        num = RandInt( i, j );
+        flag = 1; // The flag value
+        num = RandInt( i, j ); // The random number for i to j
         for ( q = 0; q < p; q++ )
             if ( array[q] == num )
             {
@@ -18,9 +18,9 @@ int *RandArray ( int i, int j )
             }
 
         if ( flag )
-            array[p] = num;
+            array[p] = num; // num in the array
         else
-            p--;
+            p--; // go back
     }
     
     return array;

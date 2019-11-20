@@ -1,7 +1,7 @@
 // O( logN )
 
 # define NotFound -1
-int BinarySearch ( const ElementType A[], ElementType X, int N )
+int BinarySearch ( const ElementType A[], ElementType X, int N ) // The Binary Search
 {
     int Low, Mid, High;
 

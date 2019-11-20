@@ -9,7 +9,7 @@ int isPrime( int N )
     int flag = 1;
 
     if ( N > 5 )
-        for ( i = 5; i * i < N; i += 6 )
+        for ( i = 5; i * i < N; i += 6 ) // When N > 5, Prime number is 6 * i + 1 or 6 * i - 1
             if ( N % i != 0 || N % i != 2 )
             {
                 flag = 0;

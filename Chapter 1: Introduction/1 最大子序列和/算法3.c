@@ -7,19 +7,20 @@ static int MaxSubSum( const int A[], int Left, int Right )
     int LeftBorderSum, RightBorderSum;
     int Center, i;
 
-    if ( Left == Right) /* Base Case */
+    if ( Left == Right) // 基础情况
         if ( A[ Left ] > 0 )
             return A[ Left ];
         else
             return 0;
-
+    
+    /* 分治 */
     Center = ( Left + Right ) / 2;
     MaxLeftSum = MaxSubSum( A, Left, Center );
     MaxRightSum = MaxSubSum( A, Center + 1, Right );
 
     MaxLeftBorderSum = 0;
     LeftBorderSum = 0;
-    for ( i = Center; i >= Left; i--)
+    for ( i = Center; i >= Left; i-- )
     {
         LeftBorderSum += A[i];
         if ( LeftBorderSum > MaxLeftBorderSum )

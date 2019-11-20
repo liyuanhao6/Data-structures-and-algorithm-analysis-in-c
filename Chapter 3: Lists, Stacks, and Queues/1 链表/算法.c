@@ -7,7 +7,13 @@ struct List
     int data;
 } p, head ;
 
-// O( N )
+struct List* CreatList( int ct );
+int IsEmpty( struct List* head );
+int IsLast( struct List* p );
+struct List* Find( struct List* head, int num );
+struct List* FindPrevious( struct List* head, int num );
+struct List* Delect( struct List* head, int num );
+struct List* Insert( struct List* head, int num, int pos);
 
 struct List* CreatList( int ct )
 {
@@ -33,7 +39,36 @@ struct List* CreatList( int ct )
     return head;
 }
 
-// O( 1 )
+void DelectList( struct List* head )
+{
+    struct List *temp = NULL, *p = NULL;
+
+    p = head->node;
+    free ( head );
+
+    while ( p != NULL )
+    {
+        temp = p;
+        p = temp->node;
+        free( temp );
+    }
+}
+
+void TraverseList( struct List* head )
+{
+    int index = 0;
+    struct List *p = NULL;
+
+    p = head->node;
+
+    while ( p != NULL )
+    {
+        printf("%d ", p->data);
+        index++;
+        if ( index / 5 == 0 )
+            putchar('\n');
+    }
+}
 
 int IsEmpty( struct List* head )
 {
@@ -43,8 +78,6 @@ int IsEmpty( struct List* head )
         return False;
 }
 
-// O( 1 )
-
 int IsLast( struct List* p )
 {
     if ( p->node == NULL )
@@ -52,8 +85,6 @@ int IsLast( struct List* p )
     else    
         return False;
 }
-
-// O( N )
 
 struct List* Find( struct List* head, int num )
 {
@@ -65,7 +96,6 @@ struct List* Find( struct List* head, int num )
         p = p->node;
     
     return p;
-
 }
 
 // O( N )
@@ -80,11 +110,7 @@ struct List* FindPrevious( struct List* head, int num )
         p = p->node;
     
     return p;
-
-
 }
-
-// O( N )
 
 struct List* Delect( struct List* head, int num )
 {
@@ -100,11 +126,8 @@ struct List* Delect( struct List* head, int num )
         p->node = p->node->node;
         free( q );
         return head;
-    }
-        
+    }  
 }
-
-// O( N )
 
 struct List* Insert( struct List* head, int num, int pos)
 {

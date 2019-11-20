@@ -9,7 +9,7 @@ struct List
 
 // O( N )
 
-struct List* MakeList( int ct )
+struct List* CreatList( int ct )
 {
     struct List *head = NULL, *p = NULL, *q = NULL;
     int temp, i;
@@ -23,7 +23,7 @@ struct List* MakeList( int ct )
         p->node = NULL;
 
         if ( head == NULL )
-            head = p;
+            head->node = p;
         else
             q->node = p;
 
@@ -81,22 +81,24 @@ struct List* FindPrevious( struct List* head, int num )
     
     return p;
 
+
 }
 
 // O( N )
 
 struct List* Delect( struct List* head, int num )
 {
-    struct List *p;
+    struct List *p = NULL *q = NULL;
 
     p = FindPrevious( head, num );
 
     if ( IsLast(p) )
-        return head->node;
+        return head;
     else
     {
-        free( p->node );
+        q = p->node;
         p->node = p->node->node;
+        free( q );
         return head;
     }
         
@@ -112,17 +114,19 @@ struct List* Insert( struct List* head, int num, int pos)
     temp = ( struct List* )malloc( sizeof( struct List ) );
     if ( pos == 1)
     {
-        temp->node = head;
+        temp->node = p->node;
         temp->data = num;
-        return temp;
+        head->node = temp;
     }
     else
     {
-        for ( i = 2; i < pos; i++ )
+        for ( i = 1; i < pos; i++ )
             p = p->node;
         
         temp->node = p->node;
-        p->node = temp;
         temp->data = num;
-        return head;
+        p->node = temp;
     }
+
+    return head;
+}

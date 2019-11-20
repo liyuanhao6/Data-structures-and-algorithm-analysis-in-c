@@ -8,7 +8,7 @@ int MaxSubsequenceSum( const int A[], int N )
     for ( i = 0; i < N; i++ ) // 基准
     {
         ThisSum = 0;
-        for ( j = i; j< N; j++ ) // 清点i到A[j]
+        for ( j = i; j< N; j++ ) // 清点i到结尾
         {
             ThisSum += A[j];
             

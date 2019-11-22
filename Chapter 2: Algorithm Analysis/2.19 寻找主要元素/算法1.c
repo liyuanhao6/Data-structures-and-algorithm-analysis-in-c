@@ -19,9 +19,8 @@ int FindPivot( const int A[] , int N )
             if ( A[N-1] == A[i] )
                 count++;
         
-        if ( count < N / 2 && index == 1 )
-            index = 0;
-
+        if ( count < ( N + 1 ) / 2 )
+            index--;
     }
     else
     {

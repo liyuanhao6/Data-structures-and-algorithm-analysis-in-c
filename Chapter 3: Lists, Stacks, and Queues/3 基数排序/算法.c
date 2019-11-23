@@ -12,7 +12,6 @@ void NodeInsert( struct Node* P, int data );
 void ListPrint( struct Node* List );
 int GetPosition( int Radix, int data, int NowLength );
 void RadixSort( struct Node *List, int Length, int Radix );
-void test(void);
 
 struct Node* NodeCreat( void )
 {

@@ -79,7 +79,7 @@ int Find( int data, int L )
 
     P = CursorSpace[L].Next;
 
-    while ( P != 0 && CursorSpace[P].Element == data )
+    while ( P != 0 && CursorSpace[P].Element != data )
         P = CursorSpace[P].Next;
 
     return P;
@@ -92,7 +92,7 @@ int FindPrevious( int data, int L )
     Q = L;
     P = CursorSpace[L].Next;
     
-    while ( P != 0 && CursorSpace[P].Element == data )
+    while ( P != 0 && CursorSpace[P].Element != data )
     {
         Q = P;
         P = CursorSpace[P].Next;

@@ -26,7 +26,7 @@ Stack CreateStack( void )
 {
     Stack P;
 
-    P = ( Stack )malloc( sizeof( Stack ) );
+    P = ( Stack )malloc( sizeof( struct Node ) );
     P->Next = NULL;
 
     return P;
@@ -99,10 +99,12 @@ int IsDigit( char ch )
 
 int Precedence( char operator )
 {
-    else if ( operator == '*' || operator == '/' )
+    if ( operator == '*' || operator == '/' )
         return 1;
     else if ( operator == '+' || operator == '-' )
         return 0;
+    else
+        return -1;
 }
 
 double Calcute( double num1, double num2, char operator )
@@ -130,26 +132,34 @@ void InfixToSuffix( const char* infix, char* suffix )
 
     for ( i = 0; i < InfixLen; i++ )
     {
-        if ( infix[i] == ' ' )
-            continue;
-        else if ( IsDigit( infix[i] ) )
-            suffix[j++] = infix[i];
-        else if ( infix[i] == '(' )
+        if ( IsEmpty( stack ) && IsOperator( infix[i] ) )
             Push( stack, infix[i] );
-        else if ( infix[i] == ')')
-        {
-            while ( Top( stack ) != '(' )
-            {
-                suffix[j++] = Top( stack );
-                Pop( stack );
-            }
-            suffix[j++] = Top( stack );
-        }
         else
         {
-            while ( IsEmpty( stack ) == False && Precedence( Top( stack ) ) )
+            if ( infix[i] == ' ' )
+                continue;
+            else if ( IsDigit( infix[i] ) )
+                suffix[j++] = infix[i];
+            else if ( infix[i] == '(' )
+                Push( stack, infix[i] );
+            else if ( infix[i] == ')')
+            {
+                while ( Top( stack ) != '(' )
+                {
+                    suffix[j++] = Top( stack );
+                    Pop( stack );
+                }
+                Pop( stack );
+            }
+            else if ( Precedence( infix[i] ) == 1 )
+            {
+                
+            }
+            else if ( Precedence( infix[i] ) == 0 )
+            {
+                
+            }
         }
-    }
 
     while( !IsEmpty( stack ) )
     {

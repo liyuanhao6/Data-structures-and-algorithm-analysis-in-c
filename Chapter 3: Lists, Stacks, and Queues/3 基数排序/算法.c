@@ -1,19 +1,19 @@
 // O( N )
 
-struct Node
+typedef struct Node
 {
     int Element;
     struct Node* Next;
-};
+} *List;
 
-struct Node* NodeCreat( void );
-void ListDelete( struct Node* List );
+List ListCreat( void );
+void ListDelete( List L );
 void NodeInsert( struct Node* P, int data );
-void ListPrint( struct Node* List );
+void ListPrint( List L );
 int GetPosition( int Radix, int data, int NowLength );
-void RadixSort( struct Node *List, int Length, int Radix );
+void RadixSort( List L, int Length, int Radix );
 
-struct Node* NodeCreat( void )
+List NodeCreat( void )
 {
     struct Node* temp = NULL;
 
@@ -23,12 +23,12 @@ struct Node* NodeCreat( void )
     return temp;
 }
 
-void ListDelete( struct Node* List )
+void ListDelete( List L )
 {
     struct Node *P = NULL, *Q = NULL;
 
-    P = List->Next;
-    List->Next = NULL;
+    P = L->Next;
+    L->Next = NULL;
 
     while ( P != NULL )
     {
@@ -50,11 +50,11 @@ void NodeInsert( struct Node* P, int data )
     P->Next = temp;
 }
 
-void ListPrint( struct Node* List )
+void ListPrint( List L )
 {
     struct Node* P = NULL;
 
-    P = List->Next;
+    P = L->Next;
 
     while ( P != NULL )
     {
@@ -76,7 +76,7 @@ int GetPosition( int Radix, int data, int NowLength )
     return ( data / temp ) % Radix;
 }
 
-void RadixSort( struct Node *List, int Length, int Radix )
+void RadixSort( List L, int Length, int Radix )
 {
     struct Node *Array[Radix], *temp = NULL, *P = NULL, *Q = NULL;
     int i, j;
@@ -86,7 +86,7 @@ void RadixSort( struct Node *List, int Length, int Radix )
     
     for ( i = 0; i < Length; i++ )
     {
-        P = List;
+        P = L;
         while( P->Next != NULL )
         {
             Q = P->Next;
@@ -107,7 +107,7 @@ void RadixSort( struct Node *List, int Length, int Radix )
             ListPrint(Array[j]);
         }
 
-        P = List;
+        P = L;
         for ( j = 0; j < Radix; j++ )
         {
             Q = Array[j];
@@ -122,7 +122,7 @@ void RadixSort( struct Node *List, int Length, int Radix )
         }
 
         printf("%dth Collection\n", i+1);
-        ListPrint(List);
+        ListPrint(L);
     }
 
     for ( i = 0; i < Radix; i++ )

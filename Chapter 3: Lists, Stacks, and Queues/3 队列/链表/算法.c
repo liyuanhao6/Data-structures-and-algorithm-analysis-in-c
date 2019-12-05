@@ -32,7 +32,7 @@ int IsEmpty( struct Queue* Q )
 
 struct Queue* CreateQueue( void )
 {
-    struct Queue* Q;
+    struct Queue* Q = NULL;
 
     Q = ( struct Queue* )malloc( sizeof( struct Queue ) );
 
@@ -47,7 +47,7 @@ void Dequeue( struct Queue* Q )
 {
     if ( !IsEmpty( Q ) )
     {
-        struct Node* temp;
+        struct Node* temp = NULL;
 
         temp = ( struct Node* )malloc( sizeof( struct Node ) );
 
@@ -63,7 +63,7 @@ void Dequeue( struct Queue* Q )
 
 void Enqueue( struct Queue* Q, int data )
 {
-    struct Node* temp;
+    struct Node* temp = NULL;
 
     temp = ( struct Node* )malloc( sizeof( struct Node ) );
 
@@ -99,7 +99,7 @@ int FrontAndDequeue( struct Queue* Q )
 {
     if ( !IsEmpty( Q ) )
     {
-        struct Node* temp;
+        struct Node* temp = NULL;
         int data;
 
         temp = ( struct Node* )malloc( sizeof( struct Node ) );

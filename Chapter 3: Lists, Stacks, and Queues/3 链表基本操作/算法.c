@@ -1,37 +1,37 @@
 # define True  1
 # define False 0
 
-struct List
+typedef struct Node
 {
-    struct List* node;
-    int data;
-} p, head ;
+    struct Node* Next;
+    int Element;
+} *List;
 
-struct List* CreatList( int ct );
-int IsEmpty( struct List* head );
-int IsLast( struct List* p );
-struct List* Find( struct List* head, int num );
-struct List* FindPrevious( struct List* head, int num );
-struct List* Delete( struct List* head, int num );
-struct List* Insert( struct List* head, int num, int pos);
+List CreatList( int ct );
+int IsEmpty( List head );
+int IsLast( List p );
+List Find( List head, int num );
+List FindPrevious( List head, int num );
+List Delete( List head, int num );
+List Insert( List head, int num, int pos);
 
-struct List* CreatList( int ct )
+List CreatList( int ct )
 {
-    struct List *head = NULL, *p = NULL, *q = NULL;
+    struct Node *head = NULL, *p = NULL, *q = NULL;
     int temp, i;
 
     for ( i = 0; i < ct; i++ )
     {
-        p = ( struct List* )malloc( sizeof( struct List ) );
+        p = ( struct List* )malloc( sizeof( struct Node ) );
 
         scanf("%d", &temp);
-        p->data = temp;
-        p->node = NULL;
+        p->Element = temp;
+        p->Next = NULL;
 
         if ( head == NULL )
-            head->node = p;
+            head->Next = p;
         else
-            q->node = p;
+            q->Next = p;
 
         q = p;
     }
@@ -39,82 +39,82 @@ struct List* CreatList( int ct )
     return head;
 }
 
-void DelectList( struct List* head )
+void DelectList( List head )
 {
-    struct List *temp = NULL, *p = NULL;
+    struct Node *temp = NULL, *p = NULL;
 
-    p = head->node;
+    p = head->Next;
     free ( head );
 
     while ( p != NULL )
     {
         temp = p;
-        p = temp->node;
+        p = temp->Next;
         free( temp );
     }
 }
 
-void TraverseList( struct List* head )
+void TraverseList( List head )
 {
     int index = 0;
-    struct List *p = NULL;
+    struct Node *p = NULL;
 
     p = head->node;
 
     while ( p != NULL )
     {
-        printf("%d ", p->data);
+        printf("%d ", p->Element);
         index++;
         if ( index / 5 == 0 )
             putchar('\n');
     }
 }
 
-int IsEmpty( struct List* head )
+int IsEmpty( List head )
 {
-    if ( head->node == NULL )
+    if ( head->Next == NULL )
         return True;
     else    
         return False;
 }
 
-int IsLast( struct List* p )
+int IsLast( List p )
 {
-    if ( p->node == NULL )
+    if ( p->Next == NULL )
         return True;
     else    
         return False;
 }
 
-struct List* Find( struct List* head, int num )
+List Find( List head, int num )
 {
-    struct List *p = NULL;
+    struct Node *p = NULL;
 
-    p = head->node;
+    p = head->Next;
 
-    while ( p != NULL && p->data != num )
-        p = p->node;
+    while ( p != NULL && p->Element != num )
+        p = p->Next;
     
     return p;
 }
 
 // O( N )
 
-struct List* FindPrevious( struct List* head, int num )
+List FindPrevious( List head, int num )
 {
-    struct List *p = NULL;
+    struct Node *p = NULL;
 
     p = head;
 
-    while ( p->node != NULL && p->node->data != num )
-        p = p->node;
+    while ( p->Next != NULL && p->Next->Element != num )
+        p = p->Next;
     
     return p;
 }
 
-struct List* Delete( struct List* head, int num )
+List Delete( List head, int num )
 {
-    struct List *p = NULL *q = NULL;
+    struct Node *p = NULL, *q = NULL;
 
     p = FindPrevious( head, num );
 
@@ -122,33 +122,33 @@ struct List* Delete( struct List* head, int num )
         return head;
     else
     {
-        q = p->node;
-        p->node = p->node->node;
+        q = p->Next;
+        p->Next = p->Next->Next;
         free( q );
         return head;
     }  
 }
 
-struct List* Insert( struct List* head, int num, int pos)
+List Insert( List head, int num, int pos)
 {
-    struct List *p = head, *temp = NULL;
+    struct Node *p = head, *temp = NULL;
     int i;
 
-    temp = ( struct List* )malloc( sizeof( struct List ) );
+    temp = ( struct List* )malloc( sizeof( struct Node ) );
     if ( pos == 1)
     {
-        temp->node = p->node;
-        temp->data = num;
-        head->node = temp;
+        temp->Next = p->Next;
+        temp->Element = num;
+        head->Next = temp;
     }
     else
     {
         for ( i = 1; i < pos; i++ )
-            p = p->node;
+            p = p->Next;
         
-        temp->node = p->node;
-        temp->data = num;
-        p->node = temp;
+        temp->Next = p->Next;
+        temp->Element = num;
+        p->Next = temp;
     }
 
     return head;

@@ -1,20 +1,20 @@
-struct List
+typedef struct Node
 {
-    struct List* node;
-    int data;
-};
+    struct Node* Next;
+    int Element;
+} *List;
 
-void PrintList( struct List* L )
+void PrintList( List L )
 {
-    struct List* P;
+    struct Node* P = NULL;
 
-    P = L->node;
-    printf( "%d ", P->data );
+    P = L->Next;
+    printf( "%d ", P->Element );
 
-    while ( P->node != NULL )
+    while ( P->Next != NULL )
     {
-        P = P->node;
-        printf( "%d ", P->data );
+        P = P->Next;
+        printf( "%d ", P->Element );
     }
 
 }

@@ -47,7 +47,7 @@ void MakeEmpty( struct QueueRecord* Q )
 
 struct QueueRecord* CreatQueue( void )
 {
-    struct QueueRecord* Q;
+    struct QueueRecord* Q = NULL;
 
     Q = ( struct QueueRecord* )malloc( sizeof( struct QueueRecord ) );
     Q->Capacity = MAXSIZE;

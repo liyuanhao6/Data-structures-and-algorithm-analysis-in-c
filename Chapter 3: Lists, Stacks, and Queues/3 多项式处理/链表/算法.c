@@ -6,5 +6,3 @@ struct Polynomial
     int Exponent;
     struct Polynomial* node;
 };
-
-

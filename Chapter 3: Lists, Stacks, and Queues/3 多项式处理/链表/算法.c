@@ -1,8 +1,8 @@
 // O( 1 )
 
-struct Polynomial
+struct Node
 {
     int Coefficient;
     int Exponent;
-    struct Polynomial* node;
-};
+    struct Node* Next;
+} *Polynomial;

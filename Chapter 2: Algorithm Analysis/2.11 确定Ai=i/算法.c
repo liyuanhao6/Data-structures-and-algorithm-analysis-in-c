@@ -1,7 +1,6 @@
 // O( logN )
 
-
-# define isNotFound 0
+# define isNotFound -1
 
 int Judge( const int A[], int N )
 {

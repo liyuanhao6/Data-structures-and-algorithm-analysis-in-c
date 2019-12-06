@@ -6,6 +6,12 @@ struct Polynomial
     int HighPower;
 };
 
+void Ini_Polynomial( struct Polynomial* poly );
+void Add_Polynomial( const struct Polynomial* poly1, const struct Polynomial* poly2, struct Polynomial* polySum );
+void Mult_Polynomial( const struct Polynomial* poly1, const struct Polynomial* poly2, struct Polynomial* polyProd );
+long double Sum( const struct Polynomial* poly, int x );
+long int Pow( int X, int N );
+
 void Ini_Polynomial( struct Polynomial* poly )
 {
     int i;
